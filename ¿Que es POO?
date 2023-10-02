@@ -1,0 +1,142 @@
+¿que es la programacion orientada a objetos?
+(no especificamente en js)
+
+paradigmas. en la programacion tenemos muchas formas de resolver
+un problema.
+Los PARADIGMAS son lineamientos, formas, caminos, que podemos segir
+para programar nuestras aplicaciones
+    los mas populares:
+    -Estructurado
+    -Orientado a objetos
+    -Funcional
+
+        cada paradigma surgio para darle solucion a algunos
+        problemas que nos ocacionaban los paradigmas anteriores
+
+        _NINGUN PARADIGMA ES MEJOR QUE OTRO
+        _LA COSA ES SABER CUANDO ES MAS ADECUADO USAR UN PARADIGMA Y OTRO
+
+Tomar el curso de historia de la programacion:
+https://platzi.com/cursos/historia-programacion/
+---------------------------------------------------
+
+PROGRAMACION ORIENTADA A OBJETOS BONUS
+
+Conceptos:
+
+    Clase: Representación de métodos y atributos que representan a una entidad.
+
+    Objeto: Instancia de una clase.
+
+    Herencia: Crear nuevas clases con características similares a partir de otras.
+
+    Encapsulamiento: Esconder datos que solo pueden ser accedidos por la clase.
+
+    Polimorfismo: Un objeto puede comportarse de muchas formas, ejemplo: En herencia, las clases hijas pueden comportarse como su clase padre y viceversa.
+
+
+https
+---------------------------------------------------
+
+        PARADIGMA: PROGRAMACION ORIENTADA A OBJETOS
+
+Ventajas:
+    ORDEN
+        - POO nos dice que todos los elementos de nuestra aplicacion estan conectados, y a todos  los llamamos
+        "objetos". 
+        Y todo lo que este relacionado dentro de uno de
+        estos objetos deve vivir dentro de este objeto.
+
+    EJM. en platzi:
+        -estudiantes
+        -cursos
+        -comentarios...  
+        Todos estos estan conectados y a cada uno de estos los
+        llamaremos objetos, y todo lo relacionado a estos objetos los meteremos dentro de sus objetos:
+
+        ESTUDIANTES:
+            todo lo relacionado con los estudiantes como
+            comentarios, rutas, cursos, edad, nombre ...
+            lo guardaremos dentro de este objeto "estudiantes
+
+            #SE TIENE QUE CRER UN OBJETO POR CADA ESTUDIANTE
+
+            ya que cada estudiante va a guardar su informacion completamente independiente a otros estudents
+
+         Estudiantes
+            Est1
+                Atributos 
+                    ·Sirven para guardar la info de cada est.
+
+                Metodos
+                    ·fn() que permiten actualizar de forma segura la info que guardamos en los atributos
+                  
+
+            Ejm: Natalia una estudiante va a tener una lista d
+            cursos que va a tomar, esta lista la guardamos como un ATRIBUTO de su objeto. 
+            Pero si quiere agregar otro curso a su lista:
+            el obj Natalia, va a tener uno o mas METODOS que van
+            a permitir actualizar su lista de cursos deseados.
+
+
+
+
+    REUTILIZAR CODIGO
+        en la Programacion Orientada a Objetos tenemos CLASES
+        que son como MOLDES.
+
+        las CLASES con bloques de codigo donde podemos definir:
+        METODOS y ATRIBUTOS base default.
+
+
+        AHORA solo vamos a tener que crear una sola clase
+        y a partir de esta clase
+
+        vamos a INSTANCIAR nuestros objetos
+        dandole a cada uno valores personalizados
+
+            Las CLASES en otros lenguajes permiten definir que tipo de DATO va a tener cada ATRIBUTO
+
+        EJM: 
+
+        vamos a crear una CLASE "estudiante" con los ATRIBUTOS y METODOS:
+        estudiante:
+        NOMBRE  -  EDAD  -  PUNTOS  -  fn(){puntos++..}
+
+
+        Y ahora podremos crear una INSTANCIA de esa CLASE estudiante: 
+        MIGUEL:
+        NOMBRE  -  EDAD  -  PUNTOS  -  fn(){puntos++..}
+         mikko      15       4000  
+
+
+        ESTO TIENE VENTAJAS:
+            si tenemos que añadir un METODO a todos los estudiantes para quitar puntos.
+                ya no tendremos que ir estudiante por estudiante añadiendole este metodo.
+
+            Sino que se lo añadiremos a la CLASE "estudiante"
+            y automaticamente todas las INSTANCIAS  de esta clase tambien lo obtendran.
+
+
+
+
+
+
+EN JS FUNCIONA MUY PARECIDO 
+PERO LAS "CLASES" EN JS SE LLAMAN "PROTOTIPOS"
+
+
+RECORDEMOS QUE TODOS LOS LENGUAJES SON DIFERENTES 
+
+POR ELLO EN LAS PROXIMAS CLASES VEREMOS COMO SE USAN LAS CLASES
+EXACTAMENTE EN JS
+
+    -OBJETOS LITERALES
+    -INSTANCIAS DE PROTOTIPOS (CLASES)
+
+    -COMO ES CREAR PROTOTIPOS CON LA SINTAXIS DE PROTOTIPOS O
+    CON LA SINTAXIS DE CLASES
+
+    y no es lo mismo que las clases de otros lenguajes de programacion orientado a objetos.
+
+s

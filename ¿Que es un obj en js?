@@ -1,0 +1,61 @@
+Para entender que es un objeto en javascript primero tenemos que 
+tener claro el concepto de una CLASE y de una INSTANCIA
+
+    CLASE
+        ·ATRIBUTOS
+        ·METODOS
+    
+    INSTACIA
+        ·hereda atributos definidos de la clase
+        ·hereda metodos de la clase
+
+Y SABER QUE LA INSTANCIA HEREDA LOS ATRIBUTOS Y METODOS DE LA CLASE(prototipo)
+
+...............................................................
+
+JS crea Nativamente el PROTOTIPO     *Object*   //no lo vemos
+
+y cada vez que creamos un objeto 
+Estamos creando una INSTACIA del prototipo *Object*
+
+#es por eso que todos los objetos nativos:
+    const obj = {};
+tienen METODOS como .hasOwnProperty
+ya que los heredaron del prototipo *Object*
+
+    Con el prototipo Nativo *Object* podemos crear
+        -Notacion de OBJETO LITERAL
+        -Constructor de objetos
+
+
+*
+------
+JavaScript
+Object
+    ObjetoPrototipo  *es una instancia del Object*
+        InstaciaDelPrototipo *tambien hereda las funciones del object*
+------
+
+
+IMPORTANTE CONSIDERAR LAS HERENCIAS YA QUE LA "InstanciaDelProtipo" HEREDA TAMBIEN LOS METODOS DE *Object* y de
+*objetoPrototipo*
+
+
+...............................................................
+
+
+JS tambien trata a los arrays como objetos
+y al igual que *Object*, tiene su propio prototipo para crear 
+Arrays, es el constructor *Array*
+
+-cuando se crea una Array es como crear una instanciaPrototipo
+ ya que hereda los METODOS del prototipo.
+ como: .pop,  .push,  .lenght ,etc.
+
+
+
+
+
+
+ ------CASI TODO EN JS ES UN OBJETO---------------------
+TRABAJA DE LA MISMA MANERA CON TODO
