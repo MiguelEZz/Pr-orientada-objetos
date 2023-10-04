@@ -1,0 +1,9 @@
+4 PILARES DE LA PROGRAMACION ORIENTADA A OBJETOS
+
+1. ABSTRACCION
+llevar un objeto del mundo real al codigo(llevarlo como molde, para crear otros mas)
+Para lograr la abstracción, se definen clases que actúan como plantillas para la creación de objetos.
+Estas clases describen las propiedades (atributos) y el comportamiento (métodos) del objeto, pero no 
+especifican cómo se implementan internamente. Por lo tanto, los usuarios de la clase solo necesitan
+conocer la interfaz (métodos públicos) y no los detalles de su implementación.
+
