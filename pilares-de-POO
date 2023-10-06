@@ -7,3 +7,169 @@ Estas clases describen las propiedades (atributos) y el comportamiento (métodos
 especifican cómo se implementan internamente. Por lo tanto, los usuarios de la clase solo necesitan
 conocer la interfaz (métodos públicos) y no los detalles de su implementación.
 
+      para crear los constructores:
+        -Funciones constructoras
+            function Persona(parametros) {
+                  this.atributos = parametros
+               }
+              Persona.prototype.saludar = function() {
+              console.log(`Hola, soy ${this.nombre} y tengo ${this.edad} años.`);   //METODOS
+               };
+                  //INSTACIAMOS
+              const miguel = new Persona();
+
+        -Construcores con sintaxis de clases
+            class Student {
+             constructor({
+              parametros
+             }) {
+              this.atributos = paremetros
+             };
+              metodos(){
+              }
+            }
+                  //INSTANCIAMOS
+             const miguel = new Persona({})
+
+
+
+2.ENCAPSULAMIENTO
+en la programacion orientada a objetos encapsulamos atributos para 
+  -poder modificarlos solo dentro de esa clase
+  -poder usar alguna logica de validacion antes de modificar el valor desde afuera
+
+  en JS tenemos:
+    -SETTER Y GETTERS
+      -objetos literales
+        get prop() {
+        //     return this.__prop__;
+        //   },     
+        //   set prop(value) {                  //sin Object.defineProperty
+        //     this.__prop__ = value * 2;
+        //   },
+        // };
+    
+        //const obj = {};
+        // Object.defineProperty(obj, //objeto target
+        // 'prop', //nombre propiedad
+        //     {
+        //     enumerable: true,
+        //     configurable: true,
+        //     get prop() { //getter          //con Object.defineProperty
+        //         return this.__prop__;      //podemos configurar mas cosas como
+        //     },                             //enumerable, configurable, get, set, 
+        //     set prop(value) { //setter     //que sirven mucho para el encapsulamiento
+        //         this.__prop__ = value * 2;
+        //     },
+        //     });
+        //     obj.prop = 12;  
+
+      -funciones constructoras
+          
+        // function Persona(nombreInicial) {
+        //     // Propiedad privada para almacenar el nombre
+        //     let _nombre = nombreInicial;
+                  
+        //     // Getter para obtener el nombre
+        //     Object.defineProperty(this, 'nombre', {
+        //          get: function() {
+        //         console.log('Obteniendo nombre');
+        //         return _nombre;
+        //         }
+        //     });
+                  
+        //     // Setter para establecer el nombre
+        //     Object.defineProperty(this, 'setNombre', {
+        //         set: function(nuevoNombre) {
+        //         console.log('Estableciendo nombre a', nuevoNombre);
+        //         _nombre = nuevoNombre;
+        //         }
+        //     });
+        //     }         
+                //el Object.defineProperty lo metemos dentro de la funcion
+
+      -clases
+         class Student {
+             constructor({
+              parametros
+             }) {
+              this.atributos = paremetros
+              this.#oculto = parametros
+             };
+              metodos(){
+                }
+              get oculto(){
+              return.this.#oculto;
+                }
+              set oculto(parametro){
+                if(true){
+                this.#oculto =parametro;
+                }
+                }  
+            }
+
+        ahora para usar usamos la misma sintaxis de reasignacion:
+        // GETTER 
+        //  wellcomeCBP.name 
+        //     te va a traer el valor que tenga this.#name
+        
+        // SETTER 
+        //  wellcomeCBP.name = "perrin"
+        //     va a actualizar el valor de this.#name si 
+        //     cumple con la condicion que le pusimos
+
+
+
+
+
+
+    -MODULES DE ECMASCRIPT 6
+
+//USANDO ENCAPSULAMIENTO CON MODULES EN JS
+
+
+si en HTML un archivo fue <script> antes que otro este puede usar
+los datos del primero.
+pero si queremos controlar y protejer los datos de algun archivo
+usamos los modulos.
+
+los modulos son la capacidad de usar datos de un archivo desde/otro
+
+//usamos las palabras clave: 
+    //export 
+            //para definir cuales van a ser los unicos datos
+            //que queremos usar desde otro archivo
+    
+   //import
+            //para importar los export, solo podremos importar
+            //las funciones o variables que se hayan expordato
+
+//ESTA ES UNA FORMA DE PROTECCION YA QUE ESTAMOS DEFINIENDO
+//CUALES VAN A SER LOS UNICOS DATOS QUE VAN A SALIR DE ESTE ARCHIVO
+//YA QUE LOS DEMAS DATOS PROBABLEMENTE SEAN CONFIDENCIALES.
+
+//ejm:
+
+// 1. nombramos a nuestros archivos que modularizaremos
+//    con la extencion:   main.mjs
+
+// 2. en el HTML al llamar el archivo js, usamos
+//     <script src="main.js" type="module"></script>    
+//        type="module"
+
+// 3. exportamos cualquier dato que querramos desprotejer
+//     export variableOFunction...
+
+// 4. importamos desde el archivo donde vamos a usar los datos
+//    exportados
+//        import {nombre} from "./ruta"
+
+//     nombre = nombre de la variable o funcion que hayamos exportado
+//     ruta = ruta del archivo donde se hizo el export
+    
+    //#no es necesario colocar en el HTML el archivo
+    //donde se hizo el EXPORT, solo en el que se hace IMPORT
+    
+//ESTO SE CONSIDERA ENCAPSULAMIENTO, YA QUE ESTAMOS PROTEJIEDO
+//LOS DATOS, SOLO DEJANDO SALIR LOS DATOS QUE TENGAN EL EXPORT
+
