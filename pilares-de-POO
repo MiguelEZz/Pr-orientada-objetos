@@ -173,3 +173,22 @@ los modulos son la capacidad de usar datos de un archivo desde/otro
 //ESTO SE CONSIDERA ENCAPSULAMIENTO, YA QUE ESTAMOS PROTEJIEDO
 //LOS DATOS, SOLO DEJANDO SALIR LOS DATOS QUE TENGAN EL EXPORT
 
+
+
+
+
+
+
+3. HERENCIA
+podria definirlo como prototipos de prototipos
+es un protitipo madre que le heredara   sus atributos y metodos a los prototipos hijos
+pero cada atributo hijo podra cambiar ciertas cosas.
+
+ejm uso. 
+PARA STUDENT de platzi, hay 3 planes y cada uno con atributos similares, pero con permisos diferentes
+para evitar hacer una clase completa para cada plan.
+Mejor creamos un constructor madre que va a heredar atributos basicos de un estudiante
+pero cada hijo va a cambiar en algunos otros, como su plan y sus permisos
+
+usando la palabra recervada extends:
+HIJO extends MAMA    hijo va a heredar todas los atributos y metodos de la mama, pero puede añadir otros
