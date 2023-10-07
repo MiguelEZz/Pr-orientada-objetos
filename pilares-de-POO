@@ -190,5 +190,60 @@ para evitar hacer una clase completa para cada plan.
 Mejor creamos un constructor madre que va a heredar atributos basicos de un estudiante
 pero cada hijo va a cambiar en algunos otros, como su plan y sus permisos
 
+
+__CONSTRUCTORES CON SINTAXIS DE CLASES
+
 usando la palabra recervada extends:
 HIJO extends MAMA    hijo va a heredar todas los atributos y metodos de la mama, pero puede añadir otros
+
+      -CLASE MADRE
+            //usaremos student para que sea la clase madre
+            // class Student {
+            //     constructor({
+            //         name,
+            //         age,
+            //         aproved = [],   //podemos dejar valores defauld
+            //         twitter,
+            //         email,
+            //     }){
+            //         this.name = name;
+            //         this.age = age;
+            //         this.aproved = aproved;
+            //         // this.function (nuevoCurso){
+            //         //     this.cursosAprovados.push(nuevoCurso)
+            //         // }
+            //     }
+            
+            //     aprobarCurso(nuevoCursito){
+            //         this.aproved.push(nuevoCursito)
+            //     }
+            // }
+
+      -CLASES HIJO
+            //class freeStudent extends Student{
+            //     constructor(props){
+            //         super(props)
+            //     }
+            //     approveCourse(newCourse){
+            //         if(newCourse.isFree){
+            //         this.approveCourse.push(newCourse)
+            //     } else{
+            //         console.warn("lo sentimos" + this.name + "no eres prime")
+            //     }
+            // }
+            // }
+            
+            // class BasicStudent extends Student{
+            // }
+            
+            // class ExpertStudent extends Student{
+            // }
+
+            USAMOS EL METODO RECERVADO SUPER()   PARA MANDARLE TODOS LOS ARGUMENTOS QUE SE ASIGNEN AL INSTANCIAR ESTA CLASE
+            HACIA EL CONSTRUCTOR DE LA CLASE MADRE, ESTE SE VA A ENCARGAR DE ASIGNAR LOS THIS., LOS METODOS Y  DESPUES LA
+            CLASE HIJO VA A HEREDAR TODO LOS ATRIBUTOS Y METODOS QUE CONSTRUYÓ LA CLASE MADRE.
+
+
+
+
+___FUNCIONES CONSTRUCTORAS
