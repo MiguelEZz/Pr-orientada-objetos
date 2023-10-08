@@ -179,17 +179,20 @@ los modulos son la capacidad de usar datos de un archivo desde/otro
 
 
 
+
+
+
 3. HERENCIA
-podria definirlo como prototipos de prototipos
-es un protitipo madre que le heredara   sus atributos y metodos a los prototipos hijos
-pero cada atributo hijo podra cambiar ciertas cosas.
-
-ejm uso. 
-PARA STUDENT de platzi, hay 3 planes y cada uno con atributos similares, pero con permisos diferentes
-para evitar hacer una clase completa para cada plan.
-Mejor creamos un constructor madre que va a heredar atributos basicos de un estudiante
-pero cada hijo va a cambiar en algunos otros, como su plan y sus permisos
-
+      podria definirlo como prototipos de prototipos
+      es un protitipo madre que le heredara   sus atributos y metodos a los prototipos hijos
+      pero cada atributo hijo podra cambiar ciertas cosas.
+      
+      ejm uso. 
+      PARA STUDENT de platzi, hay 3 planes y cada uno con atributos similares, pero con permisos diferentes
+      para evitar hacer una clase completa para cada plan.
+      Mejor creamos un constructor madre que va a heredar atributos basicos de un estudiante
+      pero cada hijo va a cambiar en algunos otros, como su plan y sus permisos
+      
 
 __CONSTRUCTORES CON SINTAXIS DE CLASES
 
@@ -246,4 +249,190 @@ HIJO extends MAMA    hijo va a heredar todas los atributos y metodos de la mama,
 
 
 
-___FUNCIONES CONSTRUCTORAS
+
+
+ ___HERENCIA EN FUNCIONES CONSTRUCTORAS
+
+    // Para hacer la herencia usando la sintaxis de prototipos podemos hacer lo 
+    // siguiente:   Suponiendo que ya tenemos creada nuestra superclase (Student).
+    //  Vamos a crear una clase (FreeStudent) que va a pasar los parámetros de 
+    //  inicialización al constructor de la superclase, para esto hacemos uso de
+    //  la función call().
+
+
+        // function FreeStudent(props) {
+        //   Student.call(this, props);
+        // }
+
+    // Le pasamos como primer atributo el contexto de ejecución de nuestra nueva
+    //  "clase" y como segundo parámetro los props, que son estas propiedades que
+    //  recibiremos de inicialización.   Después de esto, clonamos el prototipo de
+    //  nuestra superclase en el prototipo de nuestra subclase:
+    
+    
+        // FreeStudent.prototype = Object.create(Student.prototype);
+
+    //   Por último, le agregamos cualquier función extra que deseemos
+    //  agregar a la subclase:
+    
+    
+        // FreeStudent.prototype.approveCourse = function (newCourse) {
+        //   if (newCourse.isFree) {
+        //     this.approvedCourses.push(newCourse);
+        //   } else {
+        //     console.warn(`Lo sentimos, ${this.name}, sólo puedes tomar cursos gratis`);
+        //   }
+        // }
+
+
+
+
+
+
+
+
+
+4.POLIMORFISMO
+Es como Heredar mejorado, Ya que ademas de heredar sus atributos metodos
+nuestras subclases van a porder cambiar o anular el comportamiento de los metodos
+y atributos que heredo de la superClass.
+
+cambiar la forma de estos metodos y atributos que le llegan por la herencia
+
+      TIPOS DE POLIMORFISMO
+            -sobrecarga
+            -Parametrico
+            -inclusion    en js solo podemos usar este
+                  permite sobreescribir el metodo o atributo que heredamos
+                  pero queremos  cambiar de la clase mama
+
+
+      EJM:
+
+        //POLIMORFISMO
+        //son como herencias mejoradas, 
+        //le permitira modificar algunos atributos y argumentos al classhijo
+
+    class Comment {
+        constructor({
+            content,
+            studentName,
+            studentRole = "estudiantes"
+        }){
+            this.content = content;
+            this.studentName = studentName;
+            this.studentRole = studentRole
+            this.likes = 0;
+        }
+        publicar(){
+            console.log(this.studentName + this.studentRole + content)
+        }
+    }
+
+
+
+
+    //EL POLIMORFIRMO LO VAMOS A USAR CUANDO TRABAJAMOS CON HERENCIAS
+    //querramos usar un metodo del classMadre, pero modificarlo un poco
+
+class Student {
+    constructor({
+        name,
+        age,
+        aproved = [],   //podemos dejar valores defauld
+        twitter,
+        email,
+    }){
+        this.name = name;
+        this.age = age;
+        this.aproved = aproved;
+        // this.function (nuevoCurso){
+        //     this.cursosAprovados.push(nuevoCurso)
+        // }
+    }
+
+    aprobarCurso(nuevoCursito){
+        this.aproved.push(nuevoCursito)
+    }
+    publicarComentario(commentContent){
+        const commentario = new Comment({
+            content: commentContent,
+            studentName:this.name,
+        })
+        commentario.publicar();
+    }
+}
+
+//STUDENT sera la funcion madre, tene el metod publicarComentario() para todos los estudiantes
+//pero el la subclase TEACHERSTUDENT vamos a modificar un poco este mismo metodo
+//agregandole su cargo. "profesor"
+
+
+class TeacherStudent extends Student{
+    constructor(props){
+        super(props)
+    }
+    approveCourse(newCourse){
+        this.approveCourse.push(newCourse)
+    }
+    publicarComentario(commentContent){
+       const commentario = new Comment({
+           content: commentContent,
+           studentName:this.name,
+           studentRole: "profesor"
+       })
+       commentario.publicar();
+   }
+
+
+}
+
+
+//VEMOS QUE EN ESTA SUBCLASE ESTAMOS REESCRIBIENDO EL MISMO METODO CON EL MISMO NOMBRE
+//publicarComentario(), esto es el polimorfismo
+
+//ya que en el Student no le definiamos el rol del estudiante
+//porque por default es "estudiante"
+
+//pero usando el polimorfismo estamos modificando la misma funcion en la subclase
+//para que ahora defina que el studentRole será "profesor
+
+
+//ESTAS SON LAS FORMAS EN QUE SE PUEDE USAR EL POLIMORFISMO:
+//recordemos que en js solo podemos usar el polimorfismo de inclucion
+
+// Sobrescripción de Métodos (Polimorfismo de Método):
+
+// Las subclases pueden sobrescribir (redefinir) un método de la clase padre, 
+// proporcionando una implementación específica para ese método en la subclase. Esto permite
+//  que el mismo método tenga comportamientos diferentes según el tipo de objeto.
+// Sobrecarga de Métodos:
+
+// En algunos lenguajes de programación, como Java, es posible tener varios métodos con el 
+// mismo nombre en la misma clase, pero con diferentes parámetros (cantidad o tipos). El método
+//  a ejecutar se determina según la cantidad y tipos de argumentos que se le pasan.
+// Polimorfismo de Clases Abstractas e Interfaces:
+
+// Las clases abstractas pueden contener métodos abstractos que las subclases deben implementar,
+//  permitiendo diferentes implementaciones para esos métodos en las subclases. Las interfaces 
+//  también tienen un comportamiento similar.
+// Polimorfismo de Tipo:
+
+// En lenguajes con tipado dinámico (como JavaScript), un objeto puede cambiar de tipo durante 
+// su tiempo de vida. Esto significa que un objeto puede comportarse como diferentes tipos y 
+// tener diferentes comportamientos según su tipo actual.
+// Polimorfismo de Herencia:
+
+// El polimorfismo puede aprovechar la herencia para permitir que una clase base trate a sus
+// subclases de manera uniforme a través de una interfaz común, llamando a los mismos métodos
+//  incluso si tienen diferentes implementaciones en cada subclase.
+// Polimorfismo Paramétrico (o Generics):
+
+// En lenguajes que admiten genéricos (como Java, C#, TypeScript), puedes escribir código que
+//  funciona de manera polimórfica con diferentes tipos de datos. Un mismo algoritmo puede 
+//  trabajar con diferentes tipos de datos utilizando tipos genéricos.
+// Polimorfismo Ad Hoc:
+
+// En algunos lenguajes, puedes definir varias implementaciones para una función o método y
+//  el compilador selecciona la implementación correcta según el tipo de argumentos que se 
+//  pasan (polimorfismo ad hoc)."
