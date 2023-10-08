@@ -6,10 +6,26 @@
 
 
 2- OBJETOS A PROFUNDIDAD
-objetos literales
-funciones constructoras
-constructores con sintaxis de clases
-instancias
+Objetos:
 
+Representan instancias individuales de una clase. Los objetos tienen atributos que describen su estado y métodos que definen su comportamiento. Pueden comunicarse entre sí a través de interacciones definidas.
+Clases:
+
+Las clases son plantillas que definen la estructura y el comportamiento de los objetos. Contienen definiciones de atributos y métodos que se aplicarán a las instancias de esa clase.
+Atributos:
+
+Son las características o datos que describen el estado de un objeto. Cada objeto tiene su propio conjunto de atributos.
+Métodos:
+
+Representan las operaciones o acciones que un objeto puede realizar. Los métodos definen el comportamiento de un objeto y cómo interactúa con otros objetos.
+Encapsulamiento:
+
+Es el mecanismo que agrupa los atributos y métodos dentro de una clase, proporcionando un nivel de protección y control sobre el acceso a estos componentes.
+Herencia:
+
+Es un mecanismo que permite que una clase herede los atributos y métodos de otra clase (superclase). Facilita la reutilización del código y la organización en jerarquías.
+Polimorfismo:
+
+Significa "muchas formas" y permite que un método tenga diferentes implementaciones en clases distintas, proporcionando flexibilidad en la forma en que se invocan los métodos.
 
 3- SOLID
